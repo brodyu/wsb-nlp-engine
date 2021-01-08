@@ -11,8 +11,8 @@ def closePrice(ticker):
     
 x, y = popularTickers()
 # how much top tickers you want
-x = x[:10]
-y = y[:10]
+x = x[:25]
+y = y[:25]
 print(x)
 print(y)
 

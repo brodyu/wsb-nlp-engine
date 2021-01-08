@@ -1,6 +1,7 @@
 import praw
 from praw.models import MoreComments
 import matplotlib.pyplot as plt
+from openpyxl import load_workbook
 
 # Creates a set of stock tickers in NASDAQ
 def nasdaq_tickers():
@@ -24,7 +25,7 @@ def ticker_count():
     reddit = praw.Reddit(client_id = "wdBkk26fOdnn8A", client_secret = "vZM36gyWG2txWPCzujGN54WSRVkbWg", user_agent = "windows:com.example.myredditapp:v0.0.1 (by u/Exciting-Cat-8314")
     counter = 0
     # People may use use words that happen to be real ticker names
-    flagged_words = ["YOLO", "PUMP", "RH", "EOD", "IPO", "ATH", "ARE", "OR", "OUT", "FOR", "CARE", "IT", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
+    flagged_words = ["YOLO", "PUMP", "RH", "EOD", "IPO", "ATH", "ARE", "OR", "OUT", "FOR", "CARE", "WOOD", "GOOD", "IT", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
         "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     ticker_set = nasdaq_tickers()
     tickers = {}
@@ -47,6 +48,9 @@ def ticker_count():
     return tickers
 
 def popularTickers():
+    wb = load_workbook(filename = 'wsb_log.xlsx')
+    ws = wb.active
+
     result = ticker_count()
     x = []
     y = []
@@ -55,10 +59,13 @@ def popularTickers():
         if b > 0:
             x.append(a)
             y.append(b)
+            ws.append([a])
     # Uncomment to see a pie graph 
-    fig1, ax1 = plt.subplots()
-    ax1.pie(y, labels=x, autopct='%1.1f%%', shadow=True, startangle=90)
-    ax1.axis('equal')
-    plt.show()
+    #fig1, ax1 = plt.subplots()
+    #ax1.pie(y, labels=x, autopct='%1.1f%%', shadow=True, startangle=90)
+    #ax1.axis('equal')
+    #plt.show()
+    wb.save("wsb_log.xlsx")
     return x, y
+
 print(popularTickers)
