@@ -25,12 +25,12 @@ def ticker_count():
     reddit = praw.Reddit(client_id = "wdBkk26fOdnn8A", client_secret = "vZM36gyWG2txWPCzujGN54WSRVkbWg", user_agent = "windows:com.example.myredditapp:v0.0.1 (by u/Exciting-Cat-8314")
     counter = 0
     # People may use use words that happen to be real ticker names
-    flagged_words = ["YOLO", "PUMP", "RH", "EOD", "IPO", "ATH", "ARE", "OR", "OUT", "FOR", "CARE", "WOOD", "GOOD", "IT", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
+    flagged_words = ["YOLO", "PUMP", "RH", "EOD", "IPO", "ATH", "ARE", "OR", "OUT", "FOR", "CARE", "WOOD", "GOOD", "IT", "GDP", "", "SO", "BE", "DD", "JUST", "CUZ", "TV", "AT", "ALL", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
         "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     ticker_set = nasdaq_tickers()
     tickers = {}
     # Enter the url of daily discussion post
-    url = "https://www.reddit.com/r/wallstreetbets/comments/kt0a9h/daily_discussion_thread_for_january_08_2021/"
+    url = "https://www.reddit.com/r/wallstreetbets/comments/ktbnq4/weekend_discussion_thread_for_the_weekend_of/"
     submission = reddit.submission(url=url)
     print(submission.title)
     for comment in iter_top_level(submission.comments): 
@@ -60,6 +60,7 @@ def popularTickers():
             x.append(a)
             y.append(b)
             ws.append([a])
+            ws.append([b])
     # Uncomment to see a pie graph 
     #fig1, ax1 = plt.subplots()
     #ax1.pie(y, labels=x, autopct='%1.1f%%', shadow=True, startangle=90)
