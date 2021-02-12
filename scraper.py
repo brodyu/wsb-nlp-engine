@@ -30,7 +30,7 @@ def ticker_count():
     ticker_set = nasdaq_tickers()
     tickers = {}
     # Enter the url of daily discussion post
-    url = "https://www.reddit.com/r/wallstreetbets/comments/l4xeyo/what_are_your_moves_tomorrow_january_26_2021/"
+    url = "https://www.reddit.com/r/wallstreetbets/comments/lg0h70/daily_discussion_thread_for_february_09_2021/"
     submission = reddit.submission(url=url)
     print(submission.title)
     for comment in iter_top_level(submission.comments): 
