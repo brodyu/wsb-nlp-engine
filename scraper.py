@@ -22,7 +22,7 @@ def iter_top_level(comments):
             yield top_level_comment
 
 def ticker_count():
-    reddit = praw.Reddit(client_id = "wdBkk26fOdnn8A", client_secret = "vZM36gyWG2txWPCzujGN54WSRVkbWg", user_agent = "windows:com.example.myredditapp:v0.0.1 (by u/Exciting-Cat-8314")
+    reddit = praw.Reddit(client_id = "xxxxxxxxxxxxxxxx", client_secret = "xxxxxxxxxxxxxxxx", user_agent = "windows:com.example.myredditapp:v0.0.1 (by u/xxxxxxxxxxxxxxxx")
     counter = 0
     # People may use use words that happen to be real ticker names
     flagged_words = ["YOLO", "PUMP", "RH", "EOD", "IPO", "ATH", "ARE", "OR", "OUT", "FOR", "CARE", "WOOD", "GOOD", "GROW", "WFH", "NEW", "NEXT", "HUGE", "HOLD", "CAN", "PSA", "IT", "GDP", "FOX", "GO", "ON", "HOPE", "SO", "BE", "DD", "JUST", "CUZ", "TV", "AT", "ALL", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", 
